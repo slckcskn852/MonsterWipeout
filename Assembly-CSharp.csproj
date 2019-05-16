@@ -121,6 +121,9 @@
      <Compile Include="Assets\Scripts\Old Scripts\Stats\CharacterStats.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\Stats\Stat.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Reticle.cs" />
+     <Compile Include="Assets\Scripts\ZombieScript.cs" />
+     <None Include="Assets\Materials\ToonShader.shader" />
      <None Include="Assets\ToonSoldiers_demo\ToonSoldiers_demo.txt" />
      <None Include="Assets\Cinemachine\ReleaseNotes.txt" />
      <None Include="Assets\Desert Environment\Models\Shaders\WindShader.shader" />

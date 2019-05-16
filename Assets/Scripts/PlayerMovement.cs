@@ -1,36 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
 	private CharacterController characterController;
-	private Animator anim;
+	private Animator animator;
 
 	[SerializeField]
-	private float moveSpeed = 100;
+	private float fSpeed = 7.5f;
 	[SerializeField]
-	private float turnSpeed = 5f;
+	private float bSpeed = 3;
+	[SerializeField]
+	private float turnSpeed = 150f;
+
+	public int killCount;
 
 	private void Awake()
 	{
+		killCount=0;
 		characterController = GetComponent<CharacterController>();
-		anim = GetComponentInChildren<Animator>();
+		animator = GetComponentInChildren<Animator>();
+        Cursor.lockState = CursorLockMode.Locked;
 	}
+
 	private void Update()
 	{
 		var h = Input.GetAxis("Horizontal");
 		var v = Input.GetAxis("Vertical");
 
-		characterController.SimpleMove(new Vector3(h, 0, v) * Time.deltaTime * moveSpeed);
+		var movement = new Vector3(h, 0, v);
 
-		anim.SetFloat("Speed", new Vector3(h, 0, v).magnitude);
+		animator.SetFloat("Speed", v);
 
-		if (new Vector3(h, 0, v).magnitude > 0)
+		transform.Rotate(Vector3.up, h * turnSpeed * Time.deltaTime);
+
+		if (v != 0)
 		{
-			Quaternion newDir = Quaternion.LookRotation(new Vector3(h, 0, v));
+			float moveSpeedToUse = (v > 0) ? fSpeed : bSpeed;
 
-			transform.rotation = Quaternion.Slerp(transform.rotation, newDir, Time.deltaTime * turnSpeed);
+			characterController.SimpleMove(transform.forward * moveSpeedToUse * v);
 		}
 	}
 }
