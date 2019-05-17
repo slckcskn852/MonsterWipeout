@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
 		killCount=0;
 		characterController = GetComponent<CharacterController>();
 		animator = GetComponentInChildren<Animator>();
-        Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	private void Update()
@@ -38,6 +38,24 @@ public class PlayerMovement : MonoBehaviour
 			float moveSpeedToUse = (v > 0) ? fSpeed : bSpeed;
 
 			characterController.SimpleMove(transform.forward * moveSpeedToUse * v);
+		}
+		if (Input.GetKeyDown("p"))
+		{
+			System.Random random = new System.Random();
+			int randNum = random.Next(0,4);
+			if(randNum==0){
+				animator.Play("samba");
+			}
+			else if(randNum==1){
+				animator.Play("gangnamStyle");
+			}
+			else if(randNum==2){
+				animator.Play("floorCombo");
+			}
+			else if(randNum==3){
+				animator.Play("macarena");				
+			}
+
 		}
 	}
 }

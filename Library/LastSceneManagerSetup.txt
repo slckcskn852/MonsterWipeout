@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Desert Environment/Example.unity
+- path: Assets/Map/Desert Environment/Example.unity
   isLoaded: 1
   isActive: 1

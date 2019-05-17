@@ -1,57 +1,56 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField]
-    [Range(0.01f,1.5f)]
-    private float fireRate=0.1f;
+	[SerializeField]
+	[Range(0.1f, 1.5f)]
+	private float fireRate = 0.3f;
 
-    [SerializeField]
-    [Range(1,10)]
-    private int damage=1;
+	[SerializeField]
+	[Range(1, 10)]
+	private int damage = 1;
 
-    /* 
-    [SerializeField]
-    private Transform firePoint;
+    /*
+	[SerializeField]
+	private Transform firePoint;
     */
 
-    [SerializeField]
+	[SerializeField]
     private ParticleSystem muzzle;
     [SerializeField]
     private AudioSource muzzleSound;
 
-    private float timer;
-    void Start()
-    {
+	private float timer;
 
-        muzzleSound=GetComponent<AudioSource>();
-        timer = 0f;
-    }
+	void Update()
+	{
+		timer += Time.deltaTime;
+		if (timer >= fireRate)
+		{
+			if (Input.GetButton("Fire1"))
+			{
+				timer = 0f;
+				Attack();
+			}
+		}
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        timer+=Time.deltaTime;
-        if (timer>=fireRate)
-        {
-            if (Input.GetButton("Fire1"))
-            {
-                timer=0f;
-                Attack();
-            }
-        }
-    }
-    private void Attack(){
+	private void Attack(){
         //Ray ray = new Ray(firePoint.position, firePoint.forward);
-        muzzle.Play();
-        muzzleSound.Play();
+        //muzzle.Play();
+        //muzzleSound.Play();
         Ray ray = Camera.main.ViewportPointToRay(Vector3.one*0.5f);
         Debug.DrawRay(ray.origin, ray.direction*100, Color.red, 2f);
         RaycastHit hitInfo;
+        //Debug.Log("1");
         if(Physics.Raycast(ray, out hitInfo, 100)){
-            var health = hitInfo.collider.GetComponent<Health>();
+            //Debug.Log("2");
+            var health = hitInfo.collider.gameObject.GetComponentInParent<Health>();
+            Debug.Log(Physics.Raycast(ray, out hitInfo, 100));
+            Debug.Log(hitInfo.collider.gameObject.name);
+            GameObject gameObject = hitInfo.collider.gameObject;
+            Debug.Log(gameObject.GetComponentInParent<Health>());
             if (health!=null)
             {
                 //Destroy(hitInfo.collider.gameObject);

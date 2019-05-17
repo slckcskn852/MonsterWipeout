@@ -106,27 +106,18 @@
      <Compile Include="Assets\Cinemachine\Timeline\CinemachineMixer.cs" />
      <Compile Include="Assets\Cinemachine\Timeline\CinemachineShot.cs" />
      <Compile Include="Assets\Cinemachine\Timeline\CinemachineTrack.cs" />
-     <Compile Include="Assets\Desert Environment\Example\AutoMoveAndRotate.cs" />
-     <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\MainMenu\Assets\MainMenu.cs" />
+     <Compile Include="Assets\Map\Desert Environment\Example\AutoMoveAndRotate.cs" />
+     <Compile Include="Assets\Scripts\AggroDetection.cs" />
+     <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
-     <Compile Include="Assets\Scripts\Old Scripts\Enemy.cs" />
-     <Compile Include="Assets\Scripts\Old Scripts\Enemy\EnemyController.cs" />
-     <Compile Include="Assets\Scripts\Old Scripts\Interactable.cs" />
-     <Compile Include="Assets\Scripts\Old Scripts\PickAmmo.cs" />
-     <Compile Include="Assets\Scripts\Old Scripts\Player\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Old Scripts\Player\PlayerController1.cs" />
-     <Compile Include="Assets\Scripts\Old Scripts\Player\PlayerMotor.cs" />
-     <Compile Include="Assets\Scripts\Old Scripts\Player\PlayerMotor1.cs" />
-     <Compile Include="Assets\Scripts\Old Scripts\Stats\CharacterStats.cs" />
-     <Compile Include="Assets\Scripts\Old Scripts\Stats\Stat.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\Reticle.cs" />
-     <Compile Include="Assets\Scripts\ZombieScript.cs" />
-     <None Include="Assets\Materials\ToonShader.shader" />
-     <None Include="Assets\ToonSoldiers_demo\ToonSoldiers_demo.txt" />
+     <Compile Include="Assets\Scripts\SpawningScript.cs" />
+     <None Include="Assets\Characters\ToonSoldiers_demo\ToonSoldiers_demo.txt" />
      <None Include="Assets\Cinemachine\ReleaseNotes.txt" />
-     <None Include="Assets\Desert Environment\Models\Shaders\WindShader.shader" />
+     <None Include="Assets\Map\Desert Environment\Models\Shaders\WindShader.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>/Users/alpgokcek/Unity/MonsterWipeout/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
