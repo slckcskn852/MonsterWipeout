@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Health : MonoBehaviour
@@ -47,6 +48,8 @@ public class Health : MonoBehaviour
         {
             Debug.Log("2");
             StartCoroutine(PlayerDyingAnimation(player.GetComponentInChildren<Animator>()));
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Cursor.lockState = CursorLockMode.None;
         }
 	}
     private IEnumerator EnemyDyingAnimation(Animator anim){
