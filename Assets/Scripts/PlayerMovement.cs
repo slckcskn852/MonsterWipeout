@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
 		killCount=0;
 		characterController = GetComponent<CharacterController>();
 		animator = GetComponentInChildren<Animator>();
+        Cursor.lockState=CursorLockMode.Locked;
 	}
 
 	private void Update()

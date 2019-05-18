@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections;
+using TMPro;
 
 public class Gun : MonoBehaviour
 {
@@ -10,6 +12,11 @@ public class Gun : MonoBehaviour
 	[SerializeField]
 	[Range(1, 10)]
 	private int damage = 1;
+
+    private int maxAmmo=30;
+    private int currentAmmo=30;
+    public GameObject ammoText;
+    private bool isReloading=false;
 
     /*
 	[SerializeField]
@@ -25,6 +32,16 @@ public class Gun : MonoBehaviour
 
 	void Update()
 	{
+        ammoText.GetComponent<TextMeshProUGUI>().SetText(currentAmmo+"/30");
+        if(isReloading){
+            return;
+        }
+        if (currentAmmo<=0 || Input.GetKeyDown("r"))
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+
 		timer += Time.deltaTime;
 		if (timer >= fireRate)
 		{
@@ -38,6 +55,7 @@ public class Gun : MonoBehaviour
 
 	private void Attack(){
         //Ray ray = new Ray(firePoint.position, firePoint.forward);
+        currentAmmo--;
         muzzle.Play();
         muzzleSound.Play();
         Ray ray = Camera.main.ViewportPointToRay(Vector3.one*0.5f);
@@ -58,5 +76,13 @@ public class Gun : MonoBehaviour
                 //Debug.Log(hitInfo.collider.name+ " destroyed.");
             }
         }
+    }
+    private IEnumerator Reload(){
+        isReloading=true;
+        Animator anim = GetComponentInChildren<Animator>();
+        anim.Play("Motion1");
+        yield return new WaitForSeconds(3.1f);
+        currentAmmo=maxAmmo;
+        isReloading=false;
     }
 }

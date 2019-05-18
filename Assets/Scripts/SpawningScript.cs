@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using System;
 using TMPro;
 
@@ -22,6 +23,7 @@ public class SpawningScript : MonoBehaviour
     private int level;
     private float timer;
     private float timerConst=1.05f;
+    private int lastSpawn=0;
     void Start()
     {
         timer=0;
@@ -34,6 +36,7 @@ public class SpawningScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         timer+=Time.deltaTime;
         int levelUp=level*(level+1)/2;
         //        if (levelUp>=spawnedEnemyCount && timer>=4)
@@ -45,6 +48,19 @@ public class SpawningScript : MonoBehaviour
             updateLevel();
             timer=0;
         }
+        
+        /* 
+        int levelUp=level*(level+1)/2;
+        if (spawnedEnemyCount<=levelUp && !isEnemySpawning)
+        {
+            for(int i=0;i<levelUp-spawnedEnemyCount;i++){
+                StartCoroutine(spawnEnemy());
+                updateLevel();
+            }
+            
+        }
+        */
+        
         
     }
     private void updateLevel(){
@@ -61,13 +77,17 @@ public class SpawningScript : MonoBehaviour
     private IEnumerator spawnEnemy(){
         System.Random random = new System.Random();
         int randIndex=random.Next(0,3);
+        while(lastSpawn==randIndex){
+            randIndex=random.Next(0,3);
+        }
+        lastSpawn=randIndex;
         GameObject spawnedEnemy=Instantiate(enemy,spawners[randIndex].transform.position,Quaternion.identity);
         spawnedEnemy.SetActive(true);
         Animator anim = spawnedEnemy.GetComponentInChildren<Animator>();
-        spawnedEnemyCount+=1;
-
         anim.Play("spawn");
         yield return new WaitForSecondsRealtime(anim.GetCurrentAnimatorStateInfo(0).length+anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        spawnedEnemyCount+=1;
+        spawnedEnemy.GetComponent<NavMeshAgent>().speed=2f;
         anim.Play("spawn");
 
     }

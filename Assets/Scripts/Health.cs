@@ -5,13 +5,15 @@ using System.Collections;
 public class Health : MonoBehaviour
 {
 	[SerializeField]
-	private int startingHealth = 5;
+	private float startingHealth = 5;
 
     [SerializeField]
-    private int currentHealth;
+    private float currentHealth;
     [SerializeField]
     private GameObject player;
     public bool isDead=false;
+    [SerializeField]
+    private HealthBar hp;
 
 	private void OnEnable()
 	{
@@ -21,6 +23,11 @@ public class Health : MonoBehaviour
 	public void TakeDamage(int damageAmount)
 	{
 		currentHealth -= damageAmount;
+
+        if (gameObject.GetComponentInParent<PlayerMovement>())
+        {
+            hp.SetSize(currentHealth/startingHealth);
+        }
 		if (currentHealth <= 0)
 			Die();
 	}
@@ -35,7 +42,6 @@ public class Health : MonoBehaviour
             Debug.Log("1");
             gameObject.GetComponent<NavMeshAgent>().Stop();
             StartCoroutine(EnemyDyingAnimation(gameObject.GetComponentInChildren<Animator>()));
-            player.GetComponent<PlayerMovement>().killCount+=1;
         }
         else
         {
@@ -50,6 +56,8 @@ public class Health : MonoBehaviour
         anim.Play("dying");
         //gameObject.SetActive(false);
         Destroy(gameObject);
+        player.GetComponent<PlayerMovement>().killCount+=1;
+
     }
     private IEnumerator PlayerDyingAnimation(Animator anim){
         anim.Play("dying");

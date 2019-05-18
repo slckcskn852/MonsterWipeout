@@ -106,9 +106,12 @@
      <Compile Include="Assets\Cinemachine\Timeline\CinemachineMixer.cs" />
      <Compile Include="Assets\Cinemachine\Timeline\CinemachineShot.cs" />
      <Compile Include="Assets\Cinemachine\Timeline\CinemachineTrack.cs" />
+     <Compile Include="Assets\EnemySound.cs" />
      <Compile Include="Assets\MainMenu\Assets\MainMenu.cs" />
      <Compile Include="Assets\Map\Desert Environment\Example\AutoMoveAndRotate.cs" />
+     <Compile Include="Assets\Media\Sprites\HealthBar.cs" />
      <Compile Include="Assets\Scripts\AggroDetection.cs" />
+     <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
