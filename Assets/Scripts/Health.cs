@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     private int currentHealth;
     [SerializeField]
     private GameObject player;
+    public bool isDead=false;
 
 	private void OnEnable()
 	{
@@ -26,6 +27,7 @@ public class Health : MonoBehaviour
 
 	private void Die()
 	{
+        isDead=true;
         var temp1 = gameObject.GetComponent<Enemy>();
         var temp2 = gameObject.GetComponentInParent<Enemy>();
         if (temp1||temp2)
@@ -46,7 +48,8 @@ public class Health : MonoBehaviour
         yield return new WaitForSecondsRealtime(anim.GetCurrentAnimatorStateInfo(0).length+anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
         //anim.Play("Motion");
         anim.Play("dying");
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
     }
     private IEnumerator PlayerDyingAnimation(Animator anim){
         anim.Play("dying");

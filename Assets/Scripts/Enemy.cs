@@ -41,22 +41,26 @@ public class Enemy : MonoBehaviour {
     private void Update() {
         if (healthTarget != null)
         {
-            Debug.Log("health target not null");
+            //Debug.Log("health target not null");
             attackTimer += Time.deltaTime;
             if(CanAttack()){
-                Debug.Log("attack called");
+                //Debug.Log("attack called");
                 StartCoroutine(Attack());
             }
         }
         else
         {
-        Debug.Log("health target is null");            
+        //Debug.Log("health target is null");            
         }
     }
     private bool CanAttack(){
         //Debug.Log(Vector3.Distance(gameObject.transform.position, player.transform.position));
         if (Vector3.Distance(gameObject.transform.position, player.transform.position)<=gameObject.GetComponent<NavMeshAgent>().stoppingDistance && attackTimer >= attackRefreshRate)
         {
+            if (gameObject.GetComponent<Health>().isDead)
+            {
+                return false;
+            }
             return true;
         }
         else
@@ -66,6 +70,8 @@ public class Enemy : MonoBehaviour {
         //return attackTimer >= attackRefreshRate;
     }
     private IEnumerator Attack(){
+        
+        
         anim.Play("attack");
         attackTimer = 0;
         yield return new WaitForSecondsRealtime(anim.GetCurrentAnimatorStateInfo(0).length+anim.GetCurrentAnimatorStateInfo(0).normalizedTime);

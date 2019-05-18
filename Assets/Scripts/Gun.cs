@@ -38,8 +38,8 @@ public class Gun : MonoBehaviour
 
 	private void Attack(){
         //Ray ray = new Ray(firePoint.position, firePoint.forward);
-        //muzzle.Play();
-        //muzzleSound.Play();
+        muzzle.Play();
+        muzzleSound.Play();
         Ray ray = Camera.main.ViewportPointToRay(Vector3.one*0.5f);
         Debug.DrawRay(ray.origin, ray.direction*100, Color.red, 2f);
         RaycastHit hitInfo;
@@ -47,10 +47,10 @@ public class Gun : MonoBehaviour
         if(Physics.Raycast(ray, out hitInfo, 100)){
             //Debug.Log("2");
             var health = hitInfo.collider.gameObject.GetComponentInParent<Health>();
-            Debug.Log(Physics.Raycast(ray, out hitInfo, 100));
-            Debug.Log(hitInfo.collider.gameObject.name);
+            //Debug.Log(Physics.Raycast(ray, out hitInfo, 100));
+            //Debug.Log(hitInfo.collider.gameObject.name);
             GameObject gameObject = hitInfo.collider.gameObject;
-            Debug.Log(gameObject.GetComponentInParent<Health>());
+            //Debug.Log(gameObject.GetComponentInParent<Health>());
             if (health!=null)
             {
                 //Destroy(hitInfo.collider.gameObject);
