@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
 	private float startingHealth = 5;
 
     [SerializeField]
-    private float currentHealth;
+    public float currentHealth;
     [SerializeField]
     private GameObject player;
     public bool isDead=false;
