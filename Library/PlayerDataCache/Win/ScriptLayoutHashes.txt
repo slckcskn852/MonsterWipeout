@@ -1,6 +1,6 @@
 Win
 PlayerPath?
-D:/Unity Projects/ERDAL MAP/AAAAAAAAAAAAAAAAA/MonsterWipeout.exe
+D:/Unity Projects/ERDAL MAP/kill/MonsterWipeout.exe
 SceneListBegin?
 Assets/MENUASSETS/Assets/Scenes/SampleScene.unity
 Assets/Sci-Fi_Platforms  - 3D_Models/Sci-Fi_Platforms_demo.unity
