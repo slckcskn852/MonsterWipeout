@@ -1,6 +1,6 @@
 Win
 PlayerPath?
-D:/Unity Projects/ERDAL MAP/BuildFINAL/MonsterWipeout.exe
+D:/Unity Projects/ERDAL MAP/AAAAAAAAAAAAAAAAA/MonsterWipeout.exe
 SceneListBegin?
 Assets/MENUASSETS/Assets/Scenes/SampleScene.unity
 Assets/Sci-Fi_Platforms  - 3D_Models/Sci-Fi_Platforms_demo.unity
@@ -74,8 +74,6 @@ abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.Tou
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 98ad81e9f689a492509f07e75b810aaa Unity.TextMeshPro.dll:TMPro.TMP_InputField
 352455aaadb8c98ff36ead557753abfa Assembly-CSharp-firstpass.dll:UnityStandardAssets.CrossPlatformInput.TiltInput
-71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
-71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 357dc9516c87a9d2caf5c0f50c455e56 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.WaterBase
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -212,6 +210,7 @@ e63944317d2f5958e31963668bb29158 Assembly-CSharp.dll:TMPro.Examples.VertexJitter
 e08b7fd025e5743e5563e22fdd827075 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Car.CarController
 9cc3904a86f5a119184da7351cdb4e65 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.DepthOfField
 0334c4a0effc471453cf665c58f76aff Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Car.CarAIControl
+9191785f5e74cb228dd403686053018e Assembly-CSharp.dll:.killcount
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
 21ee95b4add1eb6d3d25a1efaa2d13d9 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Car.CarSelfRighting
 3cae62e09a50c5d5aae8d0536b3d8fde Assembly-CSharp.dll:.ChatController
