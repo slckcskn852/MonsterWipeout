@@ -2,19 +2,20 @@
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using TMPro;
 
 public class Health : MonoBehaviour
 {
 	[SerializeField]
-	private float startingHealth = 5;
-
+	public float startingHealth = 5;
+    
     [SerializeField]
     public float currentHealth;
     [SerializeField]
     private GameObject player;
     public bool isDead=false;
     [SerializeField]
-    private HealthBar hp;
+    public HealthBar hp;
 
 	private void OnEnable()
 	{
@@ -50,6 +51,7 @@ public class Health : MonoBehaviour
             StartCoroutine(PlayerDyingAnimation(player.GetComponentInChildren<Animator>()));
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             Cursor.lockState = CursorLockMode.None;
+            PlayerPrefs.SetInt("killCount", player.GetComponent<PlayerMovement>().killCount);
         }
 	}
     private IEnumerator EnemyDyingAnimation(Animator anim){

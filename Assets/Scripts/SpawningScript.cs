@@ -64,15 +64,11 @@ public class SpawningScript : MonoBehaviour
         
     }
     private void updateLevel(){
-        int levelUp=level*(level+1)/2;
-        if (player.GetComponent<PlayerMovement>().killCount>=levelUp)
-        {
-            //Debug.Log("player.GetComponent<PlayerMovement>().killCount>=levelUp");
-            level+=1;
-            lvltxt.GetComponentInParent<TextMeshProUGUI>().SetText("Level "+level);
-            lvltxt.GetComponent<TextMeshProUGUI>().SetText("Level "+level);
-            lvltxt.GetComponentInChildren<TextMeshProUGUI>().SetText("Level "+level);
-        }
+        
+           lvltxt.GetComponentInParent<TextMeshProUGUI>().SetText("Kills: "+ player.GetComponent<PlayerMovement>().killCount);
+            lvltxt.GetComponent<TextMeshProUGUI>().SetText("Kills: " + player.GetComponent<PlayerMovement>().killCount);
+            lvltxt.GetComponentInChildren<TextMeshProUGUI>().SetText("Kills: " + player.GetComponent<PlayerMovement>().killCount);
+        
     }
     private IEnumerator spawnEnemy(){
         System.Random random = new System.Random();

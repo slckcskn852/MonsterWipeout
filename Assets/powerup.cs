@@ -17,10 +17,10 @@ public class powerup : MonoBehaviour
     {
         Instantiate(pickupeffect, transform.position, transform.rotation);
 
-        Health hp = player.GetComponent<Health>();
+        Health hpoint = player.GetComponent<Health>();
 
-        hp.currentHealth = 20;
-
+        hpoint.currentHealth = 20;
+        hpoint.hp.SetSize(hpoint.currentHealth / hpoint.startingHealth);
         Destroy(gameObject);
     }
 }
