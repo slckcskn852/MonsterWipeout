@@ -51,6 +51,7 @@ public class Health : MonoBehaviour
             StartCoroutine(PlayerDyingAnimation(player.GetComponentInChildren<Animator>()));
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             PlayerPrefs.SetInt("killCount", player.GetComponent<PlayerMovement>().killCount);
         }
 	}
